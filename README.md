@@ -75,7 +75,7 @@ Go through the IPython notebook `real_data_step3_generate_train_test_regions.ipy
 - [real_data_step1_download_bedmap123.py](real_data_step1_download_bedmap123.py) downloads all standardised raw data from Bedmap1, Bedmap2, and Bedmap3.
 - [real_data_step2_preprocess_bedmap123.py](real_data_step2_preprocess_bedmap123.py) preprocesses and cleans the downloaded raw datasets to then generate one pd.Dataframe.
 - [real_data_step3_preprocess_regions.ipynb](real_data_step3_preprocess_regions.ipynb)
-- [real_preprocess.py](preprocess/real_preprocess.py) contains functions need in the step 3 preprocessing notebook.
+- [real_preprocess.py](preprocess/real_preprocess.py) contains functions needed in the step 3 preprocessing notebook.
 
 ## Links to research projects that use this preprocessing pipelineß
 
@@ -90,4 +90,8 @@ For any comments, questions or otherwise, please contact kim.bente@utas.edu.au
 
 # Timestamp
 
-This processing pipeline was last updated on 25 March 2026.
+This processing pipeline was last updated on *25 March 2026*.
+
+# Annotated Screenshots
+
+

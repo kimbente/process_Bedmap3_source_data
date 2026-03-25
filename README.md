@@ -1,20 +1,20 @@
-# Processing the Bedmap3 source data collection
+# Processing the Bedmap3 source data collection (Antarctic ice thickness and bed topography)
 
-This repository contains an end-to-end programmatic **preprocessing pipeline** for the Bedmap3 source data collection.
+This repository contains an end-to-end programmatic **preprocessing pipeline** for the **Bedmap3** source data collection, as used in [Pritchard et al. 2025](https://www.nature.com/articles/s41597-025-04672-y) (i.e. the Bedmap3 map), and as described in [Fremand et al. 2023](https://essd.copernicus.org/articles/15/2695/2023/).
 
-## Preprocessing pipeline - Real Antarctic ice flux data
+## Preprocessing pipeline 
 
-Preface: To reproduce the real data experiments, you can also just run the scripts on the provided, much smaller, already preprocessed data. We include the following downloading and preprocessing pipeline for full **reproducibility**.
+The following downloading and preprocessing pipeline is fully **reproducible**.
 
 ### Download Bedmap
 - In `real_data_step1__download_bedmap123.py` replace `path_to_bedmap_data_folder` with your own local path. Run the python script with `python real_data_step1_download_bedmap123.py` from the terminal. This will automatically download, unzip, and organise all **Bedmap** data files. This script works on the os operating system. If you have trouble with this script or you are not on os, also see this [BAS resource from the Geophyscis Book by the UK Polar Centre](https://antarctica.github.io/PDC_GeophysicsBook/BEDMAP/Downloading_the_Bedmap_data.html) for useful information.
 - <p style="color:red;"><strong>WARNING:</strong> This script downloads 11 GB of data!</p>
     - Bedmap1: 0.157 GB
     - Bedmap2: 3.2 GB
-    - Bedmap3: 6.8 GBß
+    - Bedmap3: 6.8 GB
 - The script directly downloads all standardised .csv files from the Bedmap1, Bedmap2 and Bedmap3 collections from the [UK Polar Data Centre](https://www.bas.ac.uk/data/uk-pdc/). The lists of .csv files are visible on [this Bristish Antarctic Survey (BAS) webpage](https://www.bas.ac.uk/project/bedmap/#data).
 - Also check out this [Github repository](https://github.com/kimbente/bedmap) for some additional analysis of Bedmap123 data.
-- Bedmap(3) references:
+- Bedmap3 references:
     - *Pritchard, Hamish D., et al. "Bedmap3 updated ice bed, surface and thickness gridded datasets for Antarctica." Scientific data 12.1 (2025): 414.*
     - *Frémand, Alice C., et al. "Antarctic Bedmap data: Findable, Accessible, Interoperable, and Reusable (FAIR) sharing of 60 years of ice bed, surface, and thickness data." Earth System Science Data 15.7 (2023): 2695-2710.*
 
@@ -72,12 +72,12 @@ Go through the IPython notebook `real_data_step3_generate_train_test_regions.ipy
 
 ## List of files with brief explanantions
 
-- [real_data_step1_download_bedmap123.py](real_data_step1_download_bedmap123.py) downloads all standardised raw data from Bedmap1, Bedmap2, and Bedmap 2.
+- [real_data_step1_download_bedmap123.py](real_data_step1_download_bedmap123.py) downloads all standardised raw data from Bedmap1, Bedmap2, and Bedmap3.
 - [real_data_step2_preprocess_bedmap123.py](real_data_step2_preprocess_bedmap123.py) preprocesses and cleans the downloaded raw datasets to then generate one pd.Dataframe.
 - [real_data_step3_preprocess_regions.ipynb](real_data_step3_preprocess_regions.ipynb)
 - [real_preprocess.py](preprocess/real_preprocess.py) contains functions need in the step 3 preprocessing notebook.
 
-## Links to research projects that use this preprocessing pipeline
+## Links to research projects that use this preprocessing pipelineß
 
 - [https://github.com/kimbente/FluxNet](https://github.com/kimbente/FluxNet): **Deep Learning Ice Shelf Basal Melt Rates via Differentiable Physics** (Kim Bente, Roman Marchant, Fabio Ramos), accepted at Climate Informatics 2026.
 - [https://github.com/kimbente/mass_conservation_on_rails](https://github.com/kimbente/mass_conservation_on_rails): **Mass Conservation on Rails - Rethinking Physics-Informed Learning of Ice Flow Vector Fields** (Kim Bente, Roman Marchant, Fabio Ramos), accepted at the NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning.

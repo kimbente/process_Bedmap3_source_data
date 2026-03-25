@@ -1,6 +1,7 @@
-# Processing the Bedmap3 source data collection (Antarctic ice thickness and bed topography)
+# Processing the Bedmap3 source data collection
+## (Antarctic ice thickness and bed topography/elevation measurements)
 
-This repository contains an end-to-end programmatic **preprocessing pipeline** for the **Bedmap3** source data collection, as used in [Pritchard et al. 2025](https://www.nature.com/articles/s41597-025-04672-y) (i.e. the Bedmap3 map), and as described in [Fremand et al. 2023](https://essd.copernicus.org/articles/15/2695/2023/).
+This repository contains an end-to-end programmatic (Python) **preprocessing pipeline** for the **Bedmap3** source data collection (all standardised csv files), as used in [Pritchard et al. 2025](https://www.nature.com/articles/s41597-025-04672-y) (i.e. the Bedmap3 map), and as described in [Fremand et al. 2023](https://essd.copernicus.org/articles/15/2695/2023/).
 
 ## Preprocessing pipeline 
 
@@ -94,4 +95,10 @@ This processing pipeline was last updated on *25 March 2026*.
 
 # Annotated Screenshots
 
+## Location of processed data files on website
 
+![screenshots/bedmap123_all_data_annotated.png](screenshots/bedmap123_all_data_annotated.png)
+
+# Overview of e.g. Bedmap3 standardised csv file collection
+
+![screenshots/bedmap123_all_data_annotated.png](screenshots/bedmap3_csvs_annotated.png)

@@ -7,21 +7,21 @@ This repository contains an end-to-end programmatic (Python) **preprocessing pip
 
 The following downloading and preprocessing pipeline is fully **reproducible**.
 
-### Download Bedmap
+### Step 1 - Download Bedmap
 - In `real_data_step1__download_bedmap123.py` replace `path_to_bedmap_data_folder` with your own local path. Run the python script with `python real_data_step1_download_bedmap123.py` from the terminal. This will automatically download, unzip, and organise all **Bedmap** data files. This script works on the os operating system. If you have trouble with this script or you are not on os, also see this [BAS resource from the Geophyscis Book by the UK Polar Centre](https://antarctica.github.io/PDC_GeophysicsBook/BEDMAP/Downloading_the_Bedmap_data.html) for useful information.
 - <p style="color:red;"><strong>WARNING:</strong> This script downloads 11 GB of data!</p>
     - Bedmap1: 0.157 GB
     - Bedmap2: 3.2 GB
     - Bedmap3: 6.8 GB
-- The script directly downloads all standardised .csv files from the Bedmap1, Bedmap2 and Bedmap3 collections from the [UK Polar Data Centre](https://www.bas.ac.uk/data/uk-pdc/). The lists of .csv files are visible on [this Bristish Antarctic Survey (BAS) webpage](https://www.bas.ac.uk/project/bedmap/#data).
+- All standardised .csv files from the Bedmap1, Bedmap2 and Bedmap3 collections are downloaded from the [UK Polar Data Centre](https://www.bas.ac.uk/data/uk-pdc/). The lists of .csv files are visible on [this Bristish Antarctic Survey (BAS) webpage](https://www.bas.ac.uk/project/bedmap/#data).
 - Also check out this [Github repository](https://github.com/kimbente/bedmap) for some additional analysis of Bedmap123 data.
 - Bedmap3 references:
     - *Pritchard, Hamish D., et al. "Bedmap3 updated ice bed, surface and thickness gridded datasets for Antarctica." Scientific data 12.1 (2025): 414.*
     - *Frémand, Alice C., et al. "Antarctic Bedmap data: Findable, Accessible, Interoperable, and Reusable (FAIR) sharing of 60 years of ice bed, surface, and thickness data." Earth System Science Data 15.7 (2023): 2695-2710.*
 
-### Preprocess Bedmap
+### Step 2 - Preprocess Bedmap (combine, clean, subset region)
 
-- In `real_data_step2_preprocess_bedmap123.py`, specify your preference about which variable you care about by setting bool_remove_rows_without_ice_thickness and/or bool_remove_rows_without_bed_elevation. Also make sure you set `path_to_bedmap_data_folder` to the same path you used for the download script. We set `bool_remove_rows_without_ice_thickness = True` because we will be using ice thickness measurements.
+- In `real_data_step2_preprocess_bedmap123.py`, specify your preference about which variable you care about (i.e. ice thickness or bed elevation) by setting bool_remove_rows_without_ice_thickness and/or bool_remove_rows_without_bed_elevation. Also make sure you set `path_to_bedmap_data_folder` to the same path you used for the download script in Step 1. Here, we set `bool_remove_rows_without_ice_thickness = True` because we will be using ice thickness measurements.
     - For only `bool_remove_rows_without_ice_thickness = True` the resulting data set contains ~ 82 M points (i.e. rows.) and is 9.5 GB large.
     - For only `bool_remove_rows_without_bed_elevation = True` the resulting data set contains ~ 67 M points (i.e. rows.)
 - Run the script with `python real_data_step2_preprocess_bedmap123.py` from the terminal.
@@ -30,13 +30,13 @@ The following downloading and preprocessing pipeline is fully **reproducible**.
     - Number of bedmap1 csv files: 1
     - Number of bedmap2 csv files: 66
     - Number of bedmap3 csv files: 84
-- Next, the data is subsetted for the broader Byrd region. The subset of data for the 300 x 300 km Byrd area is more managable in size and only contains 750k data points, reducing the file size to 0.085 GB. These are the Antarctic Polar Stereographic coordinates (see [EPSG:3031](https://epsg.io/3031)) used to subset the data. (For a user-friendly, non-programmatic conversion between and Polar Stereographic Coordinates we recommend [this conversion webtool by the Polar Geospatial Center (University of Minnesota)](https://www.pgc.umn.edu/apps/convert/).)
+- Next, the data is subsetted for a region. Here, we subset the broader Byrd region. The subset of data for the 300 x 300 km Byrd area is more managable in size and only contains 750k data points, reducing the file size to 0.085 GB. These are the Antarctic Polar Stereographic coordinates (see [EPSG:3031](https://epsg.io/3031)) used to subset the data: (For a user-friendly, non-programmatic conversion between and Polar Stereographic Coordinates we recommend [this conversion webtool by the Polar Geospatial Center (University of Minnesota)](https://www.pgc.umn.edu/apps/convert/).)
     - x_min = 350_000
     - x_max = 650_000
     - y_min = -1_000_000
     - y_max = -700_000
 
-### Generate train-test regions
+### Step 3 - Generate train-test regions
 
 Go through the IPython notebook `real_data_step3_generate_train_test_regions.ipynb` to generate the train and test tensors for the three regions, which are already provided in [real_data](data/real_data)
 - Since the Bedmap data that we just downloaded is combined with ice velocity observations, these need to be downloaded too. Download **MEaSUREs InSAR-Based Antarctica Ice Velocity Map, Version 2** from (the NSIDC website)[https://nsidc.org/data/nsidc-0484/versions/2]. See [here for the documentation/user guide](https://nsidc.org/sites/default/files/nsidc-0484-v002-userguide.pdf).

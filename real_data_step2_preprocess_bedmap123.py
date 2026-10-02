@@ -13,7 +13,7 @@ bool_remove_rows_without_bed_elevation = False
 bool_save_byrd_catchment_crop = True
 
 # CHANGE THIS TO YOUR PATH, same as in the download script
-path_to_bedmap_data_folder = "/home/kim/data/bedmap_raw_data"
+path_to_bedmap_data_folder = "/Users/kim.bente/DATA/bedmap_raw_data"
 
 # paths to subfolders
 path_to_bedmap1_data_folder = os.path.join(path_to_bedmap_data_folder, "bedmap1_raw_data")

@@ -29,7 +29,8 @@ bedmap1_url = (
 )
 
 print(f"\nDownloading Bedmap1 CSV to {path_to_bedmap1_csv} ...")
-subprocess.run(["wget", "-O", path_to_bedmap1_csv, bedmap1_url], check=True)
+# subprocess.run(["wget", "-O", path_to_bedmap1_csv, bedmap1_url], check=True)
+subprocess.run(["curl", "-L", "-o", path_to_bedmap1_csv, bedmap1_url], check = True)
 print("Bedmap1 download complete.")
 
 # --- Bedmap2: Download and extract ZIP ---
@@ -40,7 +41,8 @@ bedmap2_url = (
 )
 
 print(f"\nDownloading Bedmap2 ZIP to {bedmap2_zip_path} ...")
-subprocess.run(["wget", "-O", bedmap2_zip_path, bedmap2_url], check=True)
+# subprocess.run(["wget", "-O", bedmap2_zip_path, bedmap2_url], check=True)
+subprocess.run(["curl", "-L", "-o", bedmap2_zip_path, bedmap2_url], check = True )
 print("Bedmap2 ZIP download complete.")
 
 print(f"\nExtracting Bedmap2 ZIP into {path_to_bedmap2_data_folder} ...")
@@ -72,7 +74,8 @@ bedmap3_url = (
     "entryid=91523ff9-d621-46b3-87f7-ffb6efcd1847&output=zip.tree"
 )
 print(f"\nDownloading Bedmap3 ZIP to {bedmap3_zip_path} ...")
-subprocess.run(["wget", "-O", bedmap3_zip_path, bedmap3_url], check=True)
+# subprocess.run(["wget", "-O", bedmap3_zip_path, bedmap3_url], check=True)
+subprocess.run(["curl", "-L", "-o", bedmap3_zip_path, bedmap3_url], check = True )
 print("Bedmap3 ZIP download complete.")
 
 print(f"\nExtracting Bedmap3 ZIP into {path_to_bedmap3_data_folder} ...")
